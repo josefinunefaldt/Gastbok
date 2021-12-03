@@ -12,6 +12,7 @@ function inlagg() {
             const fNamn = document.createElement("p");
             fNamn.setAttribute("class", "fNamn");
             fNamn.textContent = data[i].namn;
+            
             document.body.appendChild(fNamn);
 
             const eNamn = document.createElement("p");
@@ -37,45 +38,65 @@ function inlagg() {
     forfragan.send();
 }
 
-function regexTest(regex, variabelTest,) {
-    let bokstavTest = regex.test(variabelTest); // testar regular expressions
-    let aterkoppling = document.getElementById("utskrift");
+let minForstaBool = true;
 
-    if (bokstavTest === true) {
-
-        aterkoppling.innerHTML = "godkänt";
-       
+function testInput(regex, variabelTest,aterkoppling) {
+    let inmatningsTest = regex.test(variabelTest); // testar regular expressions
+   
+  
+    if (inmatningsTest === true) {
+        console.log("Rätt inmatat");
+        aterkoppling.innerHTML = " ";
+        minForstaBool;
+        document.getElementById("minKnapp").disabled = false;
+              
     }
 
-    if (bokstavTest === false) {
-        aterkoppling.innerHTML = "fel";
-     
+    if (inmatningsTest === false) {
+        aterkoppling.style.color="red";
+        aterkoppling.innerHTML = " *Felmeddelande!";
+        aterkoppling.style.margin=" 1px 0px 0px 75px";
+        aterkoppling.style.fontSize="14px"  
+        minForstaBool=false;    
+        document.getElementById("minKnapp").disabled = true;
     }
 
-    bokstavTest=null;
+    inmatningsTest=null;
 }
 
-function onChange(namn) { 
+function onChange(inputFalt) { 
     let inmatForNamn = document.getElementById("forNamn").value;
     let inmatEfternamn = document.getElementById("efterNamn").value;
     let inmatTelefon = document.getElementById("telefonNummer").value;
+    let aterkopplingForNamn = document.getElementById("utskriftForNamn");
+    let aterkopplingEfterNamn = document.getElementById("utskriftEfterNamn");
+    let aterkopplingTeleNr = document.getElementById("utskriftTeleNr");
+    
    
-    if (namn=='namn'){
+    if (inputFalt=='namn'){
 
-    regexTest(/^[a-ð ,.'-]+$/i,inmatForNamn);   
+    testInput(/^[a-ð ,.'-]+$/i,inmatForNamn,aterkopplingForNamn);          
 
     }
 
-   if(namn=='efternamn'){
+   if(inputFalt=='efternamn'){
 
-    regexTest(/^[a-ð ,.'-]+$/i,inmatEfternamn,);
+    testInput(/^[a-ð ,.'-]+$/i,inmatEfternamn,aterkopplingEfterNamn);
    }
 
-   if(namn=='telefonNummer'){
+   if(inputFalt=='telefonNummer'){
 
-    regexTest(/\d+/,inmatTelefon,);
+    testInput(/\d+/,inmatTelefon,aterkopplingTeleNr);
+   }
 
+   if(minForstaBool==false){
 
+   alert("Oj,något gick fel! Rätta det rödmarkerade fältet och försök igen");
+    minForstaBool=null;
+   }
+   if(minForstaBool==true){
+
+    console.log("rätt inmatat");
    }
 
     
