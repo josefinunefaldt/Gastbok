@@ -17,14 +17,32 @@ app.use(express.static("publik"));
 
 app.use(bodyParser.urlencoded({ extended: true })) 
 app.post("/textfil", (req, res) => { 
-   
+
+
+
+let nyttEfterNamn = req.body.eNamn.replace(/</g, "&lt;");;
+let nyttForNamn = req.body.fNamn.replace(/</g, "&lt;");;
+let nyttTeleNr = req.body.teleNr.replace(/</g, "&lt;");;
+let nyKommentar = req.body.kommentar.replace(/</g, "&lt;");;
+
 let person = {
-namn: req.body.fNamn,
-efternamn: req.body.eNamn,
-telefonnummer: req.body.teleNr,
-kommentar: req.body.kommentar
+
+  namn: nyttForNamn,
+  efternamn: nyttEfterNamn,
+  telefonnummer: nyttTeleNr,
+  kommentar: nyKommentar
+
 
 }
+   
+// let person = {
+// namn: req.body.fNamn,
+// efternamn: req.body.eNamn,
+// telefonnummer: req.body.teleNr,
+// kommentar: req.body.kommentar
+
+// }
+
 
 let data = fs.readFileSync(file); // läser in data från file
  let parseData = JSON.parse(data); //gör om data till json
