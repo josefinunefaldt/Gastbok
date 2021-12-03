@@ -2,4 +2,16 @@
   border: grey solid 1px;
   width: 20%;
   padding: 1rem;
+  margin: 0px 0px 10px 0px;
+}
+.minDiv {
+  border: solid 1px;
+  color: black;
+  width: 15%;
+  background-color: black;
+}
+#rubrik {
+  color: darkred;
+  font-size: 20px;
+  margin-bottom: 50px;
 }
