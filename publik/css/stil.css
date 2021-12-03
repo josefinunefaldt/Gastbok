@@ -3,15 +3,24 @@
   width: 20%;
   padding: 1rem;
   margin: 0px 0px 10px 0px;
+  margin: auto;
+}
+
+form {
+  text-align: center;
 }
 .minDiv {
-  border: solid 1px;
+  border: solid 0.5px;
   color: black;
   width: 15%;
   background-color: black;
 }
 #rubrik {
-  color: darkred;
+  color: darkblue;
   font-size: 20px;
   margin-bottom: 50px;
+}
+
+h1 {
+  text-align: center;
 }
