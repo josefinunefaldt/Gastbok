@@ -11,17 +11,15 @@
 <body onload="inlagg();">
     <h1>Gästbok</h1>
     <div id="formular">
-    <form action="/textfil" method="post" onchange="onChange()">
-        <label>Förnamn</label><br> <input type="text" name="fNamn" id="forNamn"></input><br>
-        <label>Efternamn</label><br><input type="text" name="eNamn" id="efterNamn"></input><br>
-        <label>Telefonnummer</label><br><input type="text" name="teleNr" id="telefonNummer"></input> <br>
-        <label>Kommentarer</label><br><textarea name="kommentar" id="inmatKommentar"></textarea> <br>
+    <form action="/textfil" method="post" >
+        <label>Förnamn</label><br> <input onchange="onChange('namn')" type="text" name="fNamn" id="forNamn"></input><br>
+        <label>Efternamn</label><br><input onchange="onChange('efternamn')" type="text" name="eNamn" id="efterNamn"></input><br>
+        <label>Telefonnummer</label><br><input onchange="onChange('telefonNummer')" type="text" name="teleNr" id="telefonNummer"></input> <br>
+        <label>Kommentarer</label><br><textarea onchange="onChange('kommentar')" name="kommentar" id="inmatKommentar"></textarea> <br>
         <input type="submit" id="minKnapp">
     </form>
 </div>
-<p id="utskriftFornamn"></p>
-<p id="utskriftEfterNamn"></p>
-
+<p id="utskrift"></p>
 <p id="rubrik">Titta på sparade gästboksinlägg:</p>
 </body>
 </html>
