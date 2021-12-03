@@ -37,41 +37,50 @@ function inlagg() {
     forfragan.send();
 }
 
-function regexTest(regex, variabelTest) {
-    let bokstavTest = regex.test(variabelTest);
+function regexTest(regex, variabelTest,) {
+    let bokstavTest = regex.test(variabelTest); // testar regular expressions
+    let aterkoppling = document.getElementById("utskrift");
 
     if (bokstavTest === true) {
-        return true;
+
+        aterkoppling.innerHTML = "godkänt";
+       
     }
 
     if (bokstavTest === false) {
-        return false;
+        aterkoppling.innerHTML = "fel";
+     
     }
+
+    bokstavTest=null;
 }
 
-function onChange() { 
+function onChange(namn) { 
     let inmatForNamn = document.getElementById("forNamn").value;
-    let aterkopplingForNamn = document.getElementById("utskriftFornamn");
-    let inmatEfterNamn = document.getElementById("efterNamn");
-    let aterkopplingEfterNamn = document.getElementById("utskriftEfterNamn");
+    let inmatEfternamn = document.getElementById("efterNamn").value;
+    let inmatTelefon = document.getElementById("telefonNummer").value;
+   
+    if (namn=='namn'){
 
-    if (regexTest(/[a-ö]+i/, inmatForNamn) == true) {
-        aterkopplingForNamn.innerHTML = "godkänt";
-        
-        console.log("rad 62");
-    } else {
-        aterkopplingForNamn.innerHTML = "fel";
-        console.log("rad 65");
-       
+    regexTest(/^[a-ð ,.'-]+$/i,inmatForNamn);   
+
     }
 
-    if (regexTest(/[a-ö]+i/, inmatEfterNamn) == true) {
-        aterkopplingEfterNamn.innerHTML = "godkänt";
-        
-        console.log("rad 72");
-    } else {
-        aterkopplingEfterNamn.innerHTML = "fel";
-        console.log("rad 75");
-       
-    }
+   if(namn=='efternamn'){
+
+    regexTest(/^[a-ð ,.'-]+$/i,inmatEfternamn,);
+   }
+
+   if(namn=='telefonNummer'){
+
+    regexTest(/\d+/,inmatTelefon,);
+
+
+   }
+
+    
 }
+
+
+
+    
