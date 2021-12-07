@@ -20,7 +20,7 @@ app.post("/textfil", (req, res) => {  // funktion med formulär "textfil"
   let nyttForNamn = req.body.fNamn.replace(/</g, "&lt;");
   let nyttTeleNr = req.body.teleNr.replace(/</g, "&lt;");
   let nyKommentar = req.body.kommentar.replace(/</g, "&lt;");
-  let tidJustNu = new Date();
+  let tidJustNu = new Date().toISOString().substr(0, 16); 
 
   let person ={ // objekt person som sedan ska läggas in i jsonfilen
   
