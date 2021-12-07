@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <html lang="sv">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logga in Gästboken</title>
+    <script src="../login.js"></script>
+    <link href="../login.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="huvudDiv">
+      <h1>Gästboken</h1>
+      <!-- method post som sedan används som funktion i index.js -->
+      <form action="/loggain" method="post">
+        <div class="login">
+          <label id="ePosten">Email</label><br>      
+          <input
+          type="text"placeholder="Email"id="ePost"name="epost"/> <br> <br>   
+          <label>Lösenord</label> <br>
+          <input type="password"placeholder="Lösenord"id="losenOrdet" name="losen"/> <br> <br> 
+          <!-- onclick knapp funktion -->
+          <input type="submit" value="Logga in"  onClick="knapp();" />       
+      </form>
+    </div>
+  </div>
+  </body>
+</html>

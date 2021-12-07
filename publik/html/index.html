@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gästboken</title>
+    <script src=../javascript/skript.js></script>
+    <link href="../css/stil.css" rel="stylesheet" type="text/css">
+</head>
+<!-- body onload funktion -->
+<body onload="inlagg();"> 
+    <h1>Gästbok</h1>
+    <div id="formular">
+    <!-- method post som sedan används som funktion i index.js -->
+    <form action="/textfil" method="post" >
+        <!-- onchange funktioner i formuläret -->
+        <label>Förnamn</label><br> <input onchange="onChange('namn')" type="text" size="30" name="fNamn" id="forNamn"></input><br>
+        <p id="utskriftForNamn"></p>
+        <label>Efternamn</label><br><input onchange="onChange('efternamn')" type="text" size="30" name="eNamn" id="efterNamn"></input><br>
+        <p id="utskriftEfterNamn"></p>
+        <label>Telefonnummer</label><br><input onchange="onChange('telefonNummer')" type="text" size="30" name="teleNr" id="telefonNummer"></input> <br>
+        <p id="utskriftTeleNr"></p> 
+        <label>Kommentarer</label><br><textarea onchange="onChange('kommentar')" name="kommentar"  rows="5" cols="30" id="inmatKommentar"></textarea> <br>
+        <input type="submit" id="minKnapp">
+    </form>
+</div>
+<p id="rubrik">--------- Inlägg ---------</p>
+</body>
+</html>

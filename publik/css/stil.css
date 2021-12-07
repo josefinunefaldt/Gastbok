@@ -2,4 +2,28 @@
   border: grey solid 1px;
   width: 20%;
   padding: 1rem;
+  margin: 0px 0px 10px 0px;
+  box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.35);
+}
+.minDiv {
+  border: solid 0.5px;
+  color: darkkhaki;
+  width: 15%;
+  background-color: darkkhaki;
+}
+#rubrik {
+  color: darkkhaki;
+  font-size: 25px;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+form {
+  margin-left: 10%;
+}
+h1 {
+  margin-left: 3%;
+  color: darkkhaki;
+}
+.tiden {
+  font-size: 14px;
 }
