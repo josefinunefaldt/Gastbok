@@ -32,10 +32,10 @@ app.post("/textfil", (req, res) => {  // funktion med formulär "textfil"
   }
 
   let data = fs.readFileSync(file); // läser in data från file som är json rådata
-  let parseData = JSON.parse(data); //gör om data,översätter till JavaScript-format 
-  parseData.push(person); // pushar in objektet i ParseData som nu är i JavaScriptformat
+  let parseData = JSON.parse(data); // parsar om rådatan till ett objekt, mer specifikt ett JSON-objekt
+  parseData.push(person); // pushar in objektet i ParseData 
  
-  let inmata = JSON.stringify(parseData); // gör om JavaScriptinnehåll till json-stringdata, funkar det inte att skriva writefile utan att göra detta
+  let inmata = JSON.stringify(parseData); // /Gör om JSON-objektet till JSON-stringdata då "fs.writeFile" inte kan skriva in objekt utan behöver strängar
   fs.writeFile(file, inmata, (err) => {  
        if (err) throw err;   
   });
